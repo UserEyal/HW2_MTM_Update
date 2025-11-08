@@ -1,23 +1,21 @@
 
 #include "Utilities.h"
 
-#include <iostream>
-
-using std::cerr;
+#include <string>
 
 
 void exitWithError(MatamErrorType error) {
-    std::cerr << "Matam Error: ";
+    std::string errMsg = "Matam Error: ";
     switch (error) {
         case MatamErrorType::UnmatchedSizes:
-            std::cerr << "Unmatched matrices" << std::endl;
+            errMsg += ("Unmatched matrices");
             break;
         case MatamErrorType::OutOfBounds:
-            std::cerr << "Out of bounds" << std::endl;
+            errMsg += ("Out of bounds");
             break;
         case MatamErrorType::NotSquareMatrix:
-            std::cerr << "Matrix must be square to calculate determinant" << std::endl;
+            errMsg += ("Matrix must be square to calculate determinant");
             break;
     }
-    exit(1);
+    throw Exit(errMsg);
 }
