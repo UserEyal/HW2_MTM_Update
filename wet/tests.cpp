@@ -5,6 +5,7 @@
 
 #include "Matrix.h"
 #include "MataMvidia.h"
+#include "Utilities.h"
 
 using namespace std;
 typedef bool (*testFunc)(void);
@@ -29,8 +30,8 @@ int main() {
 		testMataMvidia(std::cout);
 		return 0;
 	}
-	catch(std::exception e) {
-		std::cerr << "Matam Error: " << e.what() << std::endl;
+	catch(const Exit& e) {
+		std::cerr << e.what() << std::endl;
 		exit(1);
 	}
 }
