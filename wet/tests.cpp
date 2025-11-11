@@ -24,9 +24,15 @@ do {                                                                           \
 
 
 int main() {
-    testMatrix(std::cout);
-    testMataMvidia(std::cout);
-    return 0;
+	try {
+		testMatrix(std::cout);
+		testMataMvidia(std::cout);
+		return 0;
+	}
+	catch(std::exception e) {
+		std::cerr << "Matam Error: " << e.what() << std::endl;
+		exit(1);
+	}
 }
 
 bool testMatrix(std::ostream& out) {
