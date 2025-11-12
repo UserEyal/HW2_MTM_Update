@@ -32,7 +32,7 @@ int main() {
 	}
 	catch(const Exit& e) {
 		std::cerr << e.what() << std::endl;
-		exit(1);
+		return 1;
 	}
 }
 
